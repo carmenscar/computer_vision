@@ -11,7 +11,7 @@
 
 # Especialização em Visão Computacional
 
-Este repositório é dedicado à "Especialização em Visão Computacional". Siga os passos abaixo para configurar o ambiente de desenvolvimento local e instalar as dependências utilizadas durante as aulas.
+Este repositório é dedicado à "Especialização em Visão Computacional". Eu segui os passos abaixo para configurar o ambiente de desenvolvimento local e instalar as dependências utilizadas durante as aulas.
 
 ## Pré-requisitos
 
