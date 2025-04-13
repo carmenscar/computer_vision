@@ -19,7 +19,91 @@ Este repositório é dedicado à "Especialização em Visão Computacional". Eu 
 
 * **Pyenv** - Ferramenta para gerenciar múltiplas versões do Python. A versão recomendada do Python para este projeto é a `3.11.3`. [Instruções oficiais de instalação do Pyenv](https://github.com/pyenv/pyenv#installation)
 
+Eu segui os seguintes passos no meu WSL:Ubuntu:
+
+1. Baixei o pyenv:
+   ```bash
+   curl -fsSL https://pyenv.run | bash
+   ```
+2. Em um novo terminal eu verifiquei qual shell eu estava usando (no caso /bin/bash)
+   ```bash
+   echo $SHELL
+   ```
+3. Editei o arquivo ".bashrc", abrindo ele no editor:
+   ```bash
+   code ~/.bashrc
+   ```
+4. Após abrir, colei as seguintes linhas no final do arquivo:
+   ```bash
+   # >>> pyenv config >>> 
+   export PYENV_ROOT="$HOME/.pyenv"
+   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+   eval "$(pyenv init - bash)"
+   eval "$(pyenv virtualenv-init -)"
+   # <<< pyenv config <<<
+   ```
+5. Em seguida salvei e fechei o editor, e apliquei as mudanças no terminal:
+   ```bash
+   source ~/.bashrc
+   ```
+6. Para instalar o pyenv precisei antes intalar algumas dependencias de sistema (pois quando fui fazer um "pyenv install"tive um erro de  build failed)
+   ```bash
+   sudo apt update && sudo apt install -y \
+   make build-essential libssl-dev zlib1g-dev \
+   libbz2-dev libreadline-dev libsqlite3-dev wget curl \
+   llvm libncursesw5-dev xz-utils tk-dev libxml2-dev \
+   libxmlsec1-dev libffi-dev liblzma-dev
+   ```
+
+7. Em seguida pude instalar o pyenv:
+   ```bash
+   pyenv install 3.11.3
+   ```
+
+8. E manter a versão como padrão:
+   ```bash
+   pyenv global 3.11.3
+   ```
+
 * **Poetry** - Ferramenta de gerenciamento de dependências em Python. [Instruções oficiais de instalação do Poetry](https://python-poetry.org/docs/#installation)
+Eu fiz os seguintes passos para fazer a instalação do poetry
+1. Fiz a instalação do poetry que me gerou um path(incluído no passo 3)
+2. Precisei novamente editar o arquivo .bashrc para incluir esse path:
+   ```bash
+   code ~/.bashrc
+   ```
+3. Ao final do  arquivo, adicionei a seguinte linha (sugerida pela instalação no passo 1):
+   ```bash
+   # >>> poetry config >>> 
+   export PATH="/home/carmenscar/.local/bin:$PATH"
+   # <<< poetry config <<<
+   ```
+4. Recarreguei o no terminal:
+   ```bash
+   source ~/.bashrc
+   ```
+5. reinstalei as dependencias:
+   ```bash
+   poetry install
+   ```
+6. Rodei os testes que o curso sugeriu pra ter certeza que mmeu ambiente estava funcionando corretamente:
+   ```bash
+   task test
+   ```
+O resultado foi:
+   ```bash
+   ================================= test session starts ===========================================
+   platform linux -- Python 3.11.3, pytest-8.3.5, pluggy-1.5.0 -- /home/carmenscar/computer_vision/visao-computacional/.venv/bin/python
+   cachedir: .pytest_cache
+   rootdir: /home/carmenscar/computer_vision/visao-computacional
+   configfile: pyproject.toml
+   plugins: anyio-4.9.0
+   collected 1 item                                                                                                    
+
+   tests/test_setup.py::test_python_version PASSED                                                               [100%]
+
+   ================================= 1 passed in 0.02s ============================================
+   ```
 
 * **Git** - Ferramenta de controle de versão distribuído. [Instruções oficiais de instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
