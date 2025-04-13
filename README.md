@@ -68,6 +68,9 @@ Eu segui os seguintes passos no meu WSL:Ubuntu:
 * **Poetry** - Ferramenta de gerenciamento de dependências em Python. [Instruções oficiais de instalação do Poetry](https://python-poetry.org/docs/#installation)
 Eu fiz os seguintes passos para fazer a instalação do poetry
 1. Fiz a instalação do poetry que me gerou um path(incluído no passo 3)
+   ```bash
+   curl -sSL https://install.python-poetry.org | python3 -
+   ```
 2. Precisei novamente editar o arquivo .bashrc para incluir esse path:
    ```bash
    code ~/.bashrc
