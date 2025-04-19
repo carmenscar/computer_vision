@@ -33,6 +33,16 @@ Eu segui os seguintes passos no meu WSL:Ubuntu:
    ```bash
    code ~/.bashrc
    ```
+
+   PS: caso eu não estivesse usando o /bin/bash, eu usaria outros arquivos de configuração.
+   Abaixo seguem as opções:
+   | Shell            | Comando `echo $SHELL` retorna | Arquivo de configuração                            |
+   |------------------|-------------------------------|----------------------------------------------------|
+   | **Bash**         | `/bin/bash`                   | `~/.bashrc` (ou `~/.bash_profile` no macOS)        |
+   | **Zsh**          | `/bin/zsh`                    | `~/.zshrc`                                         |
+   | **Fish**         | `/usr/bin/fish`               | `~/.config/fish/config.fish`                       |
+   | **Dash, Sh etc.**| Pode variar                   | Pode exigir configurações no sistema ou `.profile` |
+
 4. Após abrir, colei as seguintes linhas no final do arquivo:
    ```bash
    # >>> pyenv config >>> 
