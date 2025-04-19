@@ -120,7 +120,7 @@ Aqui está um resumo dos passos que você precisa seguir:
    ```
 6. Rodar os testes que o curso sugeriu pra ter certeza que mmeu ambiente estava funcionando corretamente:
    ```bash
-   task test
+   poetry run task test
    ```
 O resultado foi:
    ```bash
