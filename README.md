@@ -55,16 +55,6 @@ Eu segui os seguintes passos no meu WSL:Ubuntu:
    libxmlsec1-dev libffi-dev liblzma-dev
    ```
 
-7. Em seguida pude instalar o pyenv:
-   ```bash
-   pyenv install 3.11.3
-   ```
-
-8. E manter a versão como padrão:
-   ```bash
-   pyenv global 3.11.3
-   ```
-
 * **Poetry** - Ferramenta de gerenciamento de dependências em Python. [Instruções oficiais de instalação do Poetry](https://python-poetry.org/docs/#installation)
 Eu fiz os seguintes passos para fazer a instalação do poetry
 1. Fiz a instalação do poetry que me gerou um path(incluído no passo 3)
@@ -84,28 +74,6 @@ Eu fiz os seguintes passos para fazer a instalação do poetry
 4. Recarreguei o no terminal:
    ```bash
    source ~/.bashrc
-   ```
-5. reinstalei as dependencias:
-   ```bash
-   poetry install
-   ```
-6. Rodei os testes que o curso sugeriu pra ter certeza que mmeu ambiente estava funcionando corretamente:
-   ```bash
-   task test
-   ```
-O resultado foi:
-   ```bash
-   ================================= test session starts ===========================================
-   platform linux -- Python 3.11.3, pytest-8.3.5, pluggy-1.5.0 -- /home/carmenscar/computer_vision/visao-computacional/.venv/bin/python
-   cachedir: .pytest_cache
-   rootdir: /home/carmenscar/computer_vision/visao-computacional
-   configfile: pyproject.toml
-   plugins: anyio-4.9.0
-   collected 1 item                                                                                                    
-
-   tests/test_setup.py::test_python_version PASSED                                                               [100%]
-
-   ================================= 1 passed in 0.02s ============================================
    ```
 
 * **Git** - Ferramenta de controle de versão distribuído. [Instruções oficiais de instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -136,25 +104,29 @@ Aqui está um resumo dos passos que você precisa seguir:
    pyenv local 3.11.3
    ```
 
-4. Instalar as dependências do projeto:
-
+5. instalar as dependencias dop projeto:
    ```bash
    poetry install
    ```
-
-5. Ativar o ambiente virtual.
-
-   ```bash
-   poetry shell
-   ```
-
-6. Testando sua instalação
-
-   Após seguir os passos de instalação e configuração, execute os testes para garantir que tudo está funcionando como esperado:
-
+6. Rodar os testes que o curso sugeriu pra ter certeza que mmeu ambiente estava funcionando corretamente:
    ```bash
    task test
    ```
+O resultado foi:
+   ```bash
+   ================================= test session starts ===========================================
+   platform linux -- Python 3.11.3, pytest-8.3.5, pluggy-1.5.0 -- /home/carmenscar/computer_vision/visao-computacional/.venv/bin/python
+   cachedir: .pytest_cache
+   rootdir: /home/carmenscar/computer_vision/visao-computacional
+   configfile: pyproject.toml
+   plugins: anyio-4.9.0
+   collected 1 item                                                                                                    
+
+   tests/test_setup.py::test_python_version PASSED                                                               [100%]
+
+   ================================= 1 passed in 0.02s ============================================
+   ```
+
 
 ## **🚀 Material de apoio por módulo**
 
