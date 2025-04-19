@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "sigmoidal"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
-authors = ["Carlos Melo <carlos@sigmoidal.ai>"]
+authors = ["Carlos Melo <carlos@sigmoidal.ai>; Carmen Scartezini"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.11.3,<3.12.0"
-numpy = "^1.26.1"
+numpy = "1.26.1"
 scikit-learn = "^1.3.2"
 supervision = "^0.16.0"
 taskipy = "^1.12.0"
@@ -21,15 +21,15 @@ nbformat = "^5.9.2"
 ipytest = "^0.13.3"
 imutils = "^0.5.4"
 moviepy = "^1.0.3"
-mediapipe = "^0.10.7"
+mediapipe = "0.10.7"
 ipython = "^8.17.2"
 jupyter = "^1.0.0"
 jupyterlab-quarto = "^0.2.8"
-opencv-python = "^4.8.1.78"
-ultralytics = "^8.1.27"
+opencv-python = "4.8.1.78"
+ultralytics = "8.1.27"
 plotly = "^5.22.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 isort = "^5.12.0"
 blue = "^0.9.1"
 pydocstyle = "^6.3.0"
