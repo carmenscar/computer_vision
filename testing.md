@@ -37,7 +37,7 @@ wsl --install
 Crie uma pasta no seu Linux, abra seu VSCODE e faça a conexão com WSL.
 
 ## Configuração do Ambiente
-
+### Pyenv
 1. Download do pyenv
 Execute o comando abaixo na linha de comando do VSCODE para fazer o download do pyenv:
    ```bash
@@ -59,12 +59,12 @@ Essa etapa previne erros como "Build failed" ao instalar versões do Python.
 
 3. Configuração do ambiente shell
 
-### 3.1. Verifique qual shell está usando:
+ 3.1. Verifique qual shell está usando:
    ```bash
    echo $SHELL
    ```
 
-### 3.2: Edite o Arquivo de Configuração
+ 3.2: Edite o Arquivo de Configuração
 
 Abra o arquivo correspondente ao seu shell:
 
@@ -74,7 +74,7 @@ Abra o arquivo correspondente ao seu shell:
 | **Zsh** (`/bin/zsh`)  | `~/.zshrc`                       | `code ~/.zshrc`                   |
 | **Fish**              | `~/.config/fish/config.fish`     | `code ~/.config/fish/config.fish` |
 
-### 3.3: Adicione as Configurações 
+ 3.3: Adicione as Configurações 
 As configurações foram exibidas na etapa 1 (informações após CURL) e são semelhantes as configurações abaixo:
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -82,4 +82,27 @@ As configurações foram exibidas na etapa 1 (informações após CURL) e são s
    eval "$(pyenv init --path)"
    eval "$(pyenv init -)" 
    ```
+### Poetry
 
+1. Download do Poetry
+Execute o comando abaixo na linha de comando do VSCODE para fazer o download do poetry:
+   ```bash
+   curl -sSL https://install.python-poetry.org | python3 -
+   ```
+Ao final da instalação, será mostrado o path que precisa ser adicionado ao seu shell(próximo passo).
+
+2. Edite o Arquivo de Configuração (mesmo do passo 3.2 do pyenv)
+A informação a ser incluinda será semelhante a abaixo:
+   ```bash
+   # >>> poetry config >>> 
+   export PATH="/home/carmenscar/.local/bin:$PATH"
+   # <<< poetry config <<<
+   ```
+
+### Aplique as alterações do bash incluídas (pyenv e poetry)
+No terminal:
+   ```bash
+   source ~/.bashrc
+   ```
+
+## Instalação do Projeto
