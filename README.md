@@ -1,17 +1,14 @@
 [<img src="assets/evc_banner_wide.png" alt="Especialização em Visão Computacional | https://sigmoidal.ai)" title="Especialização em Visão Computacional | https://sigmoidal.ai/en)"/>](https://sigmoidal.ai/)
 
-<div align="center">
-  
-  [![Linkedin Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carlos-melo-data-science/)](https://www.linkedin.com/in/carlos-melo-data-science/)
-  [![YouTube Badge](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/@CarlosMeloSigmoidal)
-  [![Instagram Badge](https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/carlos_melo.py)
-  [![Twitter Badge](https://img.shields.io/twitter/follow/:carlos_melo_py)](https://twitter.com/carlos_melo_py)
-
-</div>
 
 # Especialização em Visão Computacional
 
-Este repositório é dedicado à "Especialização em Visão Computacional". Eu segui os passos abaixo para configurar o ambiente de desenvolvimento local e instalar as dependências utilizadas durante as aulas.
+Este repositório é dedicado à "Especialização em Visão Computacional".
+A partir dos projetos do programa, fiz minhas próprias  adições de melhoria na documentação e no código.
+Você pode encontrar o código e documentações originais [aqui](https://github.com/carlosfab/visao-computacional/tree/main)
+Eu segui os passos abaixo para configurar o ambiente de desenvolvimento local e instalar as dependências utilizadas durante as aulas.
+Inclui nessa sessão mais detalhamento sobre como fiz minha instalação no meu próprio ambiente.
+Para esse curso eu baixei no meu power shell um WSL e criei uma pasta do projeto dentro do Ubuntu e desenvolvi o projeto por lá.
 
 ## Pré-requisitos
 
@@ -19,39 +16,15 @@ Este repositório é dedicado à "Especialização em Visão Computacional". Eu 
 
 * **Pyenv** - Ferramenta para gerenciar múltiplas versões do Python. A versão recomendada do Python para este projeto é a `3.11.3`. [Instruções oficiais de instalação do Pyenv](https://github.com/pyenv/pyenv#installation)
 
-Eu segui os seguintes passos no meu WSL:Ubuntu:
+Eu segui os seguintes passos:
 
 1. Baixei o pyenv:
    ```bash
    curl -fsSL https://pyenv.run | bash
    ```
-2. Em um novo terminal eu verifiquei qual shell eu estava usando (no caso /bin/bash)
-   ```bash
-   echo $SHELL
-   ```
-3. Editei o arquivo ".bashrc", abrindo ele no editor:
-   ```bash
-   code ~/.bashrc
-   ```
+Após a instalação, ele colocará innformações sobre a instalação na linha de comando e te apontará as informações que você deve incluir no seu arquivo ".bashrc".
 
-   PS: caso eu não estivesse usando o /bin/bash, eu usaria outros arquivos de configuração.
-   Abaixo seguem as opções:
-   | Shell            | Comando `echo $SHELL` retorna | Arquivo de configuração                            |
-   |------------------|-------------------------------|----------------------------------------------------|
-   | **Bash**         | `/bin/bash`                   | `~/.bashrc` (ou `~/.bash_profile` no macOS)        |
-   | **Zsh**          | `/bin/zsh`                    | `~/.zshrc`                                         |
-   | **Fish**         | `/usr/bin/fish`               | `~/.config/fish/config.fish`                       |
-   | **Dash, Sh etc.**| Pode variar                   | Pode exigir configurações no sistema ou `.profile` |
-
-4. Após abrir, colei as seguintes linhas no final do arquivo:
-   ```bash
-   export PYENV_ROOT="$HOME/.pyenv"
-   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-   eval "$(pyenv init --path)"
-   eval "$(pyenv init -)" 
-   ```
-
-5. Para instalar o pyenv precisei antes intalar algumas dependencias de sistema (pois quando fui fazer um "pyenv install"tive um erro de  build failed)
+2. Para instalar o pyenv precisei antes instalar algumas dependências de sistema (pois quando fui fazer um "pyenv install"tive um erro de  build failed). Isso instala algumas dependencias pro Ubuntu.
    ```bash
    sudo apt update && sudo apt install -y \
    make build-essential libssl-dev zlib1g-dev \
@@ -60,13 +33,36 @@ Eu segui os seguintes passos no meu WSL:Ubuntu:
    libxmlsec1-dev libffi-dev liblzma-dev
    ```
 
+3. Editei o arquivo ".bashrc", abrindo ele no editor:
+   ```bash
+   code ~/.bashrc
+   ```
+
+   PS: caso eu não estivesse usando o /bin/bash, eu usaria outros arquivos de configuração ( que não o ~/.bashrc).
+   Abaixo seguem as opções:
+   | Shell            | Comando `echo $SHELL` retorna | Arquivo de configuração                            |
+   |------------------|-------------------------------|----------------------------------------------------|
+   | **Bash**         | `/bin/bash`                   | `~/.bashrc` (ou `~/.bash_profile` no macOS)        |
+   | **Zsh**          | `/bin/zsh`                    | `~/.zshrc`                                         |
+   | **Fish**         | `/usr/bin/fish`               | `~/.config/fish/config.fish`                       |
+   | **Dash, Sh etc.**| Pode variar                   | Pode exigir configurações no sistema ou `.profile` |
+
+4. Após abrir, colei as seguintes linhas no final do arquivo ".bashrc",enviadas nas linhas de comando como informações da instalação do sistema (você vai encontrar algo similar a isso ao instalar o pyenv no passo 1):
+   ```bash
+   export PYENV_ROOT="$HOME/.pyenv"
+   [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+   eval "$(pyenv init --path)"
+   eval "$(pyenv init -)" 
+   ```
+
 * **Poetry** - Ferramenta de gerenciamento de dependências em Python. [Instruções oficiais de instalação do Poetry](https://python-poetry.org/docs/#installation)
+
 Eu fiz os seguintes passos para fazer a instalação do poetry
-1. Fiz a instalação do poetry que me gerou um path(incluído no passo 3)
+1. Baixei o poetry que me gerou um path(que será incluído no passo 3)
    ```bash
    curl -sSL https://install.python-poetry.org | python3 -
    ```
-2. Precisei novamente editar o arquivo .bashrc para incluir esse path:
+2. Precisei novamente editar o arquivo .bashrc para incluir esse path (use o código abaixo caso o arquivo não esteja aberto):
    ```bash
    code ~/.bashrc
    ```
@@ -75,21 +71,6 @@ Eu fiz os seguintes passos para fazer a instalação do poetry
    # >>> poetry config >>> 
    export PATH="/home/carmenscar/.local/bin:$PATH"
    # <<< poetry config <<<
-   ```
-
-4. adiconei o codigo abaixo para Ajustar a formatação da minha linha de comando que estava desconfigurada
-
-   ```bash
-   __update_prompt() {
-      local venv_name=""
-      if [[ -n "$VIRTUAL_ENV" ]]; then
-         venv_name="(.venv)"  # Mostra (.venv) para ambientes do Poetry
-      elif [[ -n "$PYENV_VERSION" ]]; then
-         venv_name="($PYENV_VERSION)"  # Mostra (nome) para Pyenv puro
-      fi
-      PS1="${venv_name}\u@\h:\w\$ "
-   }
-   PROMPT_COMMAND=__update_prompt
    ```
 
 Para executar no terminal as atualizações do poetry e do pyenv:
@@ -106,7 +87,7 @@ Essas atualizações que foram feitas no bashrc preparam o ambiente com pyenv e 
 
 Aqui está um resumo dos passos que você precisa seguir:
 
-1. Clonar o [Repositório Github](https://github.com/carlosfab/visao-computacional) para a sua máquina local e acessar a pasta `visao-computacional`:
+1. Clonar o [Repositório Github](https://github.com/carmenscar/computer_vision) para a sua máquina local e acessar a pasta `visao-computacional`. Você pode clonar o arquivo original do curso mas não tem todas as atualizações que fiz no arquivo .toml. Precisei fazer essas atualizações pra que o ambiente do jupyter funcionasse adequadamente dentro do meu VSCODE:
 
    ```bash
    git clone https://github.com/carlosfab/visao-computacional.git
@@ -149,18 +130,27 @@ O resultado foi:
    ================================= 1 passed in 0.02s ============================================
    ```
 
-7. Ao abrir o vscode, meu ambiente virtual ja estava fazendo a ativação automatica, então eu não precisei digitar "poetry shell". Lembre-se de entrar na pasta "computer_vision" (cd computer vision) e ativar o ambiente virtual caso isso não esteja acontecendo de maneira automatica (poetry shell)
+7. Ao fechar e abrir o vscode, meu ambiente virtual ja estava fazendo a ativação automatica, então eu não precisei digitar "poetry shell". Lembre-se de entrar na pasta "computer_vision" (cd computer vision) e ativar o ambiente virtual caso isso não esteja acontecendo de maneira automatica (poetry shell).
+Caso seu ambiente virtual não esteja ativado, digite os passos abaixo:
+   ```bash
+   poetry self add poetry-shell-plugin
+   poetry shell
+   ```
 
 8. Para ativar o setup do kernel para rodar o jupyter digite:
    ```bash
-   poetry run task register_kernel
+   poetry run task setup_jupyter
    ```
-Ao fechar e abrir verifique se o kernel já esta ativo. Caso esteja não é necessário rodar essa task
-verifique com 
+
+Esse comando deve habilitar o kernel para ser utilizado no jupyter. Procure pelo kernel "Python (Poetry)"
+em Select kernel => Jupyter Server.
+
+Ao fechar e abrir a IDE verifique se o kernel já esta ativo. Caso esteja não é necessário rodar a task acima novamente.
+Verifique com 
    ```bash
    poetry run jupyter kernelspec list
    ```
-Caso o kernel "jupyter_poetry_kernel" esteja na lista não é necessário ativa-lo, porém as vezes o vscode demora a reconhecer e você precisa ajustar o noetebook (as vezes o proprio vscode sugere o uso do kernel .venv) para selecionar p kernel do caminho .venv ()
+Caso o kernel "project_kernel" esteja na lista não é necessário ativa-lo novamente.
 
 * **PS**: Para rodar o notebook no vscode precisei fazer alguns ajustes no arquivo original .toml. Foi necessário fixar as versões das bibliotecas opencv-python, ultralytics, mediapipe e numpy. Sempre que eu tentava fazer o import cv2 no notebook o kernel crashava e isso foi resolvido fixando a bibilioteca do open cv o que acabou levando a fixar as outras também. O poetry deveria fazer a gestão mas pode ter ocorrido algum problema que eu não investiguei mais profundamente mas foi resolvido instalando bibliotecas nativas (libgl1, ffmpeg, etc) e fixando as bibiliotecas no .toml.
 
