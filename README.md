@@ -52,11 +52,8 @@ Eu segui os seguintes passos no meu WSL:Ubuntu:
    eval "$(pyenv virtualenv-init -)"
    # <<< pyenv config <<<
    ```
-5. Em seguida salvei e fechei o editor, e apliquei as mudanças no terminal:
-   ```bash
-   source ~/.bashrc
-   ```
-6. Para instalar o pyenv precisei antes intalar algumas dependencias de sistema (pois quando fui fazer um "pyenv install"tive um erro de  build failed)
+
+5. Para instalar o pyenv precisei antes intalar algumas dependencias de sistema (pois quando fui fazer um "pyenv install"tive um erro de  build failed)
    ```bash
    sudo apt update && sudo apt install -y \
    make build-essential libssl-dev zlib1g-dev \
@@ -81,10 +78,13 @@ Eu fiz os seguintes passos para fazer a instalação do poetry
    export PATH="/home/carmenscar/.local/bin:$PATH"
    # <<< poetry config <<<
    ```
-4. Recarreguei o no terminal:
+
+
+Para executar no terminal as atualizações do poetry e do pyenv:
    ```bash
    source ~/.bashrc
    ```
+Essas atualizações que foram feitas no bashrc preparam o ambiente com pyenv e poetry. Porém o poetry ainda necessita de ativação. Isso vai acontecer sempre que seu ambiente for reiniciado.
 
 * **Git** - Ferramenta de controle de versão distribuído. [Instruções oficiais de instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -114,9 +114,10 @@ Aqui está um resumo dos passos que você precisa seguir:
    pyenv local 3.11.3
    ```
 
-5. instalar as dependencias dop projeto:
+5. instalar e ativar as dependencias do projeto:
    ```bash
    poetry install
+   poetry shell
    ```
 6. Rodar os testes que o curso sugeriu pra ter certeza que mmeu ambiente estava funcionando corretamente:
    ```bash
@@ -137,8 +138,10 @@ O resultado foi:
    ================================= 1 passed in 0.02s ============================================
    ```
 
+
 * **PS**: Para rodar o notebook no vscode precisei fazer alguns ajustes no arquivo original .toml. Foi necessário fixar as versões das bibliotecas opencv-python, ultralytics, mediapipe e numpy. Sempre que eu tentava fazer o import cv2 no notebook o kernel crashava e isso foi resolvido fixando a bibilioteca do open cv o que acabou levando a fixar as outras também. O poetry deveria fazer a gestão mas pode ter ocorrido algum problema que eu não investiguei mais profundamente mas foi resolvido instalando bibliotecas nativas (libgl1, ffmpeg, etc) e fixando as bibiliotecas no .toml.
 
+Sempre que reabrir o projeto, precisa 
 
 ## **🚀 Material de apoio por módulo**
 
