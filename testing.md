@@ -57,14 +57,14 @@ Antes de usar o pyenv, é essencial instalar estas dependências no Ubuntu:
     ```
 Essa etapa previne erros como "Build failed" ao instalar versões do Python.
 
-##### 3. Configuração do ambiente shell
+#### 3. Configuração do ambiente shell
 
-###### 3.1. Verifique qual shell está usando:
+##### 3.1. Verifique qual shell está usando:
    ```bash
    echo $SHELL
    ```
 
-###### 3.2. Edite o Arquivo de Configuração
+##### 3.2. Edite o Arquivo de Configuração
 
 Abra o arquivo correspondente ao seu shell:
 
