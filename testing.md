@@ -38,7 +38,7 @@ Crie uma pasta no seu Linux, abra seu VSCODE e faça a conexão com WSL.
 
 ## Configuração do Ambiente
 ### Pyenv
-1. Download do pyenv
+#### 1. Download do pyenv
 Execute o comando abaixo na linha de comando do VSCODE para fazer o download do pyenv:
    ```bash
    curl -fsSL https://pyenv.run | bash
@@ -46,7 +46,7 @@ Execute o comando abaixo na linha de comando do VSCODE para fazer o download do 
 
 Após a instalação, o terminal mostrará instruções sobre quais configurações adicionar ao seu arquivo de configuração do shell.
 
-2. Instalação das Dependências do Sistema
+#### 2. Instalação das Dependências do Sistema
 Antes de usar o pyenv, é essencial instalar estas dependências no Ubuntu:
     ```bash
     sudo apt update && sudo apt install -y \
@@ -57,14 +57,14 @@ Antes de usar o pyenv, é essencial instalar estas dependências no Ubuntu:
     ```
 Essa etapa previne erros como "Build failed" ao instalar versões do Python.
 
-3. Configuração do ambiente shell
+##### 3. Configuração do ambiente shell
 
- 3.1. Verifique qual shell está usando:
+###### 3.1. Verifique qual shell está usando:
    ```bash
    echo $SHELL
    ```
 
- 3.2. Edite o Arquivo de Configuração
+###### 3.2. Edite o Arquivo de Configuração
 
 Abra o arquivo correspondente ao seu shell:
 
@@ -74,7 +74,7 @@ Abra o arquivo correspondente ao seu shell:
 | **Zsh** (`/bin/zsh`)  | `~/.zshrc`                       | `code ~/.zshrc`                   |
 | **Fish**              | `~/.config/fish/config.fish`     | `code ~/.config/fish/config.fish` |
 
- 3.3. Adicione as Configurações 
+##### 3.3. Adicione as Configurações 
 As configurações foram exibidas na etapa 1 (informações após CURL) e são semelhantes as configurações abaixo:
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
@@ -84,14 +84,14 @@ As configurações foram exibidas na etapa 1 (informações após CURL) e são s
    ```
 ### Poetry
 
-1. Download do Poetry
+#### 1. Download do Poetry
 Execute o comando abaixo na linha de comando do VSCODE para fazer o download do poetry:
    ```bash
    curl -sSL https://install.python-poetry.org | python3 -
    ```
 Ao final da instalação, será mostrado o path que precisa ser adicionado ao seu shell(próximo passo).
 
-2. Edite o Arquivo de Configuração (mesmo do passo 3.2 do pyenv)
+#### 2. Edite o Arquivo de Configuração (mesmo do passo 3.2 do pyenv)
 A informação a ser incluinda será semelhante a abaixo:
    ```bash
    # >>> poetry config >>> 
@@ -106,32 +106,32 @@ No terminal:
    ```
 
 ## Instalação do Projeto
-1. Clonar o [Repositório Github](https://github.com/carmenscar/computer_vision) para a sua máquina local e acessar a pasta `computer_vision`. Você pode clonar o arquivo original do curso mas não tem todas as atualizações feitas por mim no arquivo .toml. Essas atualizações pra que o ambiente do jupyter funcionasse adequadamente dentro do meu VSCODE:
+#### 1. Clonar o [Repositório Github](https://github.com/carmenscar/computer_vision) para a sua máquina local e acessar a pasta `computer_vision`. Você pode clonar o arquivo original do curso mas não tem todas as atualizações feitas por mim no arquivo .toml. Essas atualizações pra que o ambiente do jupyter funcionasse adequadamente dentro do meu VSCODE:
 
    ```bash
    git clone https://github.com/carmenscar/computer_vision.git
    cd visao-computacional
    ```
 
-2. Configurar o Poetry para criar ambientes virtuais dentro do diretório do projeto.
+#### 2. Configurar o Poetry para criar ambientes virtuais dentro do diretório do projeto.
 
    ```bash
    poetry config virtualenvs.in-project true
    ```
 
-3. Configurar a versão `3.11.3` do Python com Pyenv:
+#### 3. Configurar a versão `3.11.3` do Python com Pyenv:
 
    ```bash
    pyenv install 3.11.3
    pyenv local 3.11.3
    ```
 
-5. Instalar as dependencias do projeto:
+#### 4. Instalar as dependencias do projeto:
    ```bash
    poetry install
    ```
 
-6. Verificação do ambiente:
+#### 5. Verificação do ambiente:
    ```bash
    poetry run task test
    ```
@@ -153,18 +153,18 @@ O resultado foi:
 ## Configuração do Jupyter
 Essas configurações foram feitas pra conseguir rodar o Jupyter no kernell adequado no ambiente do VScode com as dependências gerenciadas pelo poetry
 
-1. Ativação Automática do Ambiente
+#### 1. Ativação Automática do Ambiente
    ```bash
     poetry self add poetry-shell-plugin
     poetry shell
    ```
 
-8. Ative o setup do kernel para rodar o jupyter notebook:
+#### 2. Ative o setup do kernel para rodar o jupyter notebook:
    ```bash
    poetry run task setup_jupyter
    ```
 
-8.  Procure pelo kernel "Python (Poetry)" no ambiente do VSCode para rodar os notebooks
+#### 3.  Procure pelo kernel "Python (Poetry)" no ambiente do VSCode para rodar os notebooks
 
 ## **🚀 Material de apoio por módulo**
 
