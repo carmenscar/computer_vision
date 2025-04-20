@@ -149,7 +149,18 @@ O resultado foi:
    ================================= 1 passed in 0.02s ============================================
    ```
 
-7. Ao abrir o vscode, meu ambiente virtual ja estava fazendo a ativação automatica, então eu não precisei digitar "poetry shell"
+7. Ao abrir o vscode, meu ambiente virtual ja estava fazendo a ativação automatica, então eu não precisei digitar "poetry shell". Lembre-se de entrar na pasta "computer_vision" (cd computer vision) e ativar o ambiente virtual caso isso não esteja acontecendo de maneira automatica (poetry shell)
+
+8. Para ativar o setup do kernel para rodar o jupyter digite:
+   ```bash
+   poetry run task register_kernel
+   ```
+Ao fechar e abrir verifique se o kernel já esta ativo. Caso esteja não é necessário rodar essa task
+verifique com 
+   ```bash
+   poetry run jupyter kernelspec list
+   ```
+Caso o kernel "jupyter_poetry_kernel" esteja na lista não é necessário ativa-lo, porém as vezes o vscode demora a reconhecer e você precisa ajustar o noetebook (as vezes o proprio vscode sugere o uso do kernel .venv) para selecionar p kernel do caminho .venv ()
 
 * **PS**: Para rodar o notebook no vscode precisei fazer alguns ajustes no arquivo original .toml. Foi necessário fixar as versões das bibliotecas opencv-python, ultralytics, mediapipe e numpy. Sempre que eu tentava fazer o import cv2 no notebook o kernel crashava e isso foi resolvido fixando a bibilioteca do open cv o que acabou levando a fixar as outras também. O poetry deveria fazer a gestão mas pode ter ocorrido algum problema que eu não investiguei mais profundamente mas foi resolvido instalando bibliotecas nativas (libgl1, ffmpeg, etc) e fixando as bibiliotecas no .toml.
 

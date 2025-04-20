@@ -46,5 +46,5 @@ known_third_party = []
 [tool.taskipy.tasks]
 format = "isort . && blue ."
 test = "pytest -v"
-register_kernel = "python -m ipykernel install --name jupyter_poetry_kernel --display-name \"Python (for Jupyter)\" --prefix=$(poetry env info -p)"
-setup_jupyter = "poetry install --sync && task register_kernel"
+register_kernel = "python -m ipykernel install --user --name=project_kernel --display-name=\"Python (Poetry env)\""
+setup_jupyter = "poetry install --sync && poetry run task register_kernel"
