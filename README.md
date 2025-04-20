@@ -45,12 +45,10 @@ Eu segui os seguintes passos no meu WSL:Ubuntu:
 
 4. Após abrir, colei as seguintes linhas no final do arquivo:
    ```bash
-   # >>> pyenv config >>> 
    export PYENV_ROOT="$HOME/.pyenv"
    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-   eval "$(pyenv init - bash)"
-   eval "$(pyenv virtualenv-init -)"
-   # <<< pyenv config <<<
+   eval "$(pyenv init --path)"
+   eval "$(pyenv init -)" 
    ```
 
 5. Para instalar o pyenv precisei antes intalar algumas dependencias de sistema (pois quando fui fazer um "pyenv install"tive um erro de  build failed)
@@ -79,12 +77,26 @@ Eu fiz os seguintes passos para fazer a instalação do poetry
    # <<< poetry config <<<
    ```
 
+4. adiconei o codigo abaixo para Ajustar a formatação da minha linha de comando que estava desconfigurada
+
+   ```bash
+   __update_prompt() {
+      local venv_name=""
+      if [[ -n "$VIRTUAL_ENV" ]]; then
+         venv_name="(.venv)"  # Mostra (.venv) para ambientes do Poetry
+      elif [[ -n "$PYENV_VERSION" ]]; then
+         venv_name="($PYENV_VERSION)"  # Mostra (nome) para Pyenv puro
+      fi
+      PS1="${venv_name}\u@\h:\w\$ "
+   }
+   PROMPT_COMMAND=__update_prompt
+   ```
 
 Para executar no terminal as atualizações do poetry e do pyenv:
    ```bash
    source ~/.bashrc
    ```
-Essas atualizações que foram feitas no bashrc preparam o ambiente com pyenv e poetry. Porém o poetry ainda necessita de ativação. Isso vai acontecer sempre que seu ambiente for reiniciado.
+Essas atualizações que foram feitas no bashrc preparam o ambiente com pyenv e poetry. 
 
 * **Git** - Ferramenta de controle de versão distribuído. [Instruções oficiais de instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -117,7 +129,6 @@ Aqui está um resumo dos passos que você precisa seguir:
 5. instalar e ativar as dependencias do projeto:
    ```bash
    poetry install
-   poetry shell
    ```
 6. Rodar os testes que o curso sugeriu pra ter certeza que mmeu ambiente estava funcionando corretamente:
    ```bash
@@ -138,10 +149,11 @@ O resultado foi:
    ================================= 1 passed in 0.02s ============================================
    ```
 
+7. Ao abrir o vscode, meu ambiente virtual ja estava fazendo a ativação automatica, então eu não precisei digitar "poetry shell"
 
 * **PS**: Para rodar o notebook no vscode precisei fazer alguns ajustes no arquivo original .toml. Foi necessário fixar as versões das bibliotecas opencv-python, ultralytics, mediapipe e numpy. Sempre que eu tentava fazer o import cv2 no notebook o kernel crashava e isso foi resolvido fixando a bibilioteca do open cv o que acabou levando a fixar as outras também. O poetry deveria fazer a gestão mas pode ter ocorrido algum problema que eu não investiguei mais profundamente mas foi resolvido instalando bibliotecas nativas (libgl1, ffmpeg, etc) e fixando as bibiliotecas no .toml.
 
-Sempre que reabrir o projeto, precisa 
+
 
 ## **🚀 Material de apoio por módulo**
 
