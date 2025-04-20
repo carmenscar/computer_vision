@@ -137,6 +137,8 @@ O resultado foi:
    ================================= 1 passed in 0.02s ============================================
    ```
 
+* **PS**: Para rodar o notebook no vscode precisei fazer alguns ajustes no arquivo original .toml. Foi necessário fixar as versões das bibliotecas opencv-python, ultralytics, mediapipe e numpy. Sempre que eu tentava fazer o import cv2 no notebook o kernel crashava e isso foi resolvido fixando a bibilioteca do open cv o que acabou levando a fixar as outras também. O poetry deveria fazer a gestão mas pode ter ocorrido algum problema que eu não investiguei mais profundamente mas foi resolvido instalando bibliotecas nativas (libgl1, ffmpeg, etc) e fixando as bibiliotecas no .toml.
+
 
 ## **🚀 Material de apoio por módulo**
 
