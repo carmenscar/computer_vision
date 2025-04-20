@@ -1,117 +1,137 @@
 [<img src="assets/evc_banner_wide.png" alt="Especialização em Visão Computacional | https://sigmoidal.ai)" title="Especialização em Visão Computacional | https://sigmoidal.ai/en)"/>](https://sigmoidal.ai/)
-
-
 # Especialização em Visão Computacional
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
+[![Poetry](https://img.shields.io/badge/packaging-poetry-yellowgreen)](https://python-poetry.org/)
 
-Este repositório é dedicado à "Especialização em Visão Computacional".
-A partir dos projetos do programa, fiz minhas próprias  adições de melhoria na documentação e no código.
-Você pode encontrar o código e documentações originais [aqui](https://github.com/carlosfab/visao-computacional/tree/main)
-Eu segui os passos abaixo para configurar o ambiente de desenvolvimento local e instalar as dependências utilizadas durante as aulas.
-Inclui nessa sessão mais detalhamento sobre como fiz minha instalação no meu próprio ambiente.
-Para esse curso eu baixei no meu power shell um WSL e criei uma pasta do projeto dentro do Ubuntu e desenvolvi o projeto por lá.
+Este repositório contém meus projetos e melhorias para a "Especialização em Visão Computacional". Partindo do [código original do curso](https://github.com/carlosfab/visao-computacional), adicionei:
+
+- ✔️ Melhor documentação do setup
+- ✔️ Configuração otimizada para Jupyter Notebooks
+- ✔️ Soluções para problemas comuns de dependências
+
+## Índice
+- [Pré-requisitos](#pré-requisitos)
+- [Configuração do Ambiente](#configuração-do-ambiente)
+- [Instalação do Projeto](#instalação-do-projeto)
+- [Configuração do Jupyter](#configuração-do-jupyter)
+- [Solução de Problemas](#solução-de-problemas)
+- [FAQ](#faq)
+
+---
 
 ## Pré-requisitos
 
-* **VSCode** - Editor de código utilizado durante o treinamento. Disponível para Windows, macOS e Linux. [Instalação oficial do VSCode](https://code.visualstudio.com/download)
+### 📋 Software Necessário
+| Ferramenta       | Versão  | Guia de Instalação |
+|------------------|---------|--------------------|
+| VSCode           | Latest  | [Site](https://code.visualstudio.com/download) |
+| Pyenv            | 2.3.0+  | [GitHub](https://github.com/pyenv/pyenv#installation) |
+| Poetry           | 1.8.0+  | [Docs](https://python-poetry.org/docs/#installation) |
+| Git              | 2.40+   | [Guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) |
 
-* **Pyenv** - Ferramenta para gerenciar múltiplas versões do Python. A versão recomendada do Python para este projeto é a `3.11.3`. [Instruções oficiais de instalação do Pyenv](https://github.com/pyenv/pyenv#installation)
+### 💻 Configuração WSL
+Abra o PowerShell no windows e instale o WSL
+```powershell
+wsl --install
+```
+Crie uma pasta no seu Linux, abra seu VSCODE e faça a conexão com WSL.
 
-Eu segui os seguintes passos:
-
-1. Baixei o pyenv:
+## Configuração do Ambiente
+### Pyenv
+#### 1. Download do pyenv
+Execute o comando abaixo na linha de comando do VSCODE para fazer o download do pyenv:
    ```bash
    curl -fsSL https://pyenv.run | bash
    ```
-Após a instalação, ele colocará innformações sobre a instalação na linha de comando e te apontará as informações que você deve incluir no seu arquivo ".bashrc".
 
-2. Para instalar o pyenv precisei antes instalar algumas dependências de sistema (pois quando fui fazer um "pyenv install"tive um erro de  build failed). Isso instala algumas dependencias pro Ubuntu.
+Após a instalação, o terminal mostrará instruções sobre quais configurações adicionar ao seu arquivo de configuração do shell.
+
+#### 2. Instalação das Dependências do Sistema
+Antes de usar o pyenv, é essencial instalar estas dependências no Ubuntu:
+    ```bash
+    sudo apt update && sudo apt install -y \
+    make build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev wget curl \
+    llvm libncursesw5-dev xz-utils tk-dev libxml2-dev \
+    libxmlsec1-dev libffi-dev liblzma-dev
+    ```
+Essa etapa previne erros como "Build failed" ao instalar versões do Python.
+
+#### 3. Configuração do ambiente shell
+
+##### 3.1. Verifique qual shell está usando:
    ```bash
-   sudo apt update && sudo apt install -y \
-   make build-essential libssl-dev zlib1g-dev \
-   libbz2-dev libreadline-dev libsqlite3-dev wget curl \
-   llvm libncursesw5-dev xz-utils tk-dev libxml2-dev \
-   libxmlsec1-dev libffi-dev liblzma-dev
+   echo $SHELL
    ```
 
-3. Editei o arquivo ".bashrc", abrindo ele no editor:
-   ```bash
-   code ~/.bashrc
-   ```
+##### 3.2. Edite o Arquivo de Configuração
 
-   PS: caso eu não estivesse usando o /bin/bash, eu usaria outros arquivos de configuração ( que não o ~/.bashrc).
-   Abaixo seguem as opções:
-   | Shell            | Comando `echo $SHELL` retorna | Arquivo de configuração                            |
-   |------------------|-------------------------------|----------------------------------------------------|
-   | **Bash**         | `/bin/bash`                   | `~/.bashrc` (ou `~/.bash_profile` no macOS)        |
-   | **Zsh**          | `/bin/zsh`                    | `~/.zshrc`                                         |
-   | **Fish**         | `/usr/bin/fish`               | `~/.config/fish/config.fish`                       |
-   | **Dash, Sh etc.**| Pode variar                   | Pode exigir configurações no sistema ou `.profile` |
+Abra o arquivo correspondente ao seu shell:
 
-4. Após abrir, colei as seguintes linhas no final do arquivo ".bashrc",enviadas nas linhas de comando como informações da instalação do sistema (você vai encontrar algo similar a isso ao instalar o pyenv no passo 1):
+| Shell Detectado       | Arquivo de Configuração          | Comando para Editar               |
+|-----------------------|----------------------------------|-----------------------------------|
+| **Bash** (`/bin/bash`)| `~/.bashrc` ou `~/.bash_profile` | `code ~/.bashrc`                  |
+| **Zsh** (`/bin/zsh`)  | `~/.zshrc`                       | `code ~/.zshrc`                   |
+| **Fish**              | `~/.config/fish/config.fish`     | `code ~/.config/fish/config.fish` |
+
+##### 3.3. Adicione as Configurações 
+As configurações foram exibidas na etapa 1 (informações após CURL) e são semelhantes as configurações abaixo:
    ```bash
    export PYENV_ROOT="$HOME/.pyenv"
    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
    eval "$(pyenv init --path)"
    eval "$(pyenv init -)" 
    ```
+### Poetry
 
-* **Poetry** - Ferramenta de gerenciamento de dependências em Python. [Instruções oficiais de instalação do Poetry](https://python-poetry.org/docs/#installation)
-
-Eu fiz os seguintes passos para fazer a instalação do poetry
-1. Baixei o poetry que me gerou um path(que será incluído no passo 3)
+#### 1. Download do Poetry
+Execute o comando abaixo na linha de comando do VSCODE para fazer o download do poetry:
    ```bash
    curl -sSL https://install.python-poetry.org | python3 -
    ```
-2. Precisei novamente editar o arquivo .bashrc para incluir esse path (use o código abaixo caso o arquivo não esteja aberto):
-   ```bash
-   code ~/.bashrc
-   ```
-3. Ao final do  arquivo, adicionei a seguinte linha (sugerida pela instalação no passo 1):
+Ao final da instalação, será mostrado o path que precisa ser adicionado ao seu shell(próximo passo).
+
+#### 2. Edite o Arquivo de Configuração (mesmo do passo 3.2 do pyenv)
+A informação a ser incluinda será semelhante a abaixo:
    ```bash
    # >>> poetry config >>> 
    export PATH="/home/carmenscar/.local/bin:$PATH"
    # <<< poetry config <<<
    ```
 
-Para executar no terminal as atualizações do poetry e do pyenv:
+### Aplique as alterações do bash incluídas (pyenv e poetry)
+No terminal:
    ```bash
    source ~/.bashrc
    ```
-Essas atualizações que foram feitas no bashrc preparam o ambiente com pyenv e poetry. 
 
-* **Git** - Ferramenta de controle de versão distribuído. [Instruções oficiais de instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-
-* **GitHub** - Plataforma de hospedagem de código. É essencial ter uma conta para interagir com os repositórios. [Como criar uma conta no GitHub](https://docs.github.com/pt/get-started/onboarding/getting-started-with-your-github-account)
-
-## Instalação e Configuração
-
-Aqui está um resumo dos passos que você precisa seguir:
-
-1. Clonar o [Repositório Github](https://github.com/carmenscar/computer_vision) para a sua máquina local e acessar a pasta `visao-computacional`. Você pode clonar o arquivo original do curso mas não tem todas as atualizações que fiz no arquivo .toml. Precisei fazer essas atualizações pra que o ambiente do jupyter funcionasse adequadamente dentro do meu VSCODE:
+## Instalação do Projeto
+#### 1. Clonar o [Repositório Github](https://github.com/carmenscar/computer_vision) para a sua máquina local e acessar a pasta `computer_vision`. Você pode clonar o arquivo original do curso mas não tem todas as atualizações feitas por mim no arquivo .toml. Essas atualizações pra que o ambiente do jupyter funcionasse adequadamente dentro do meu VSCODE:
 
    ```bash
-   git clone https://github.com/carlosfab/visao-computacional.git
+   git clone https://github.com/carmenscar/computer_vision.git
    cd visao-computacional
    ```
 
-2. Configurar o Poetry para criar ambientes virtuais dentro do diretório do projeto.
+#### 2. Configurar o Poetry para criar ambientes virtuais dentro do diretório do projeto.
 
    ```bash
    poetry config virtualenvs.in-project true
    ```
 
-3. Configurar a versão `3.11.3` do Python com Pyenv:
+#### 3. Configurar a versão `3.11.3` do Python com Pyenv:
 
    ```bash
    pyenv install 3.11.3
    pyenv local 3.11.3
    ```
 
-5. instalar e ativar as dependencias do projeto:
+#### 4. Instalar as dependencias do projeto:
    ```bash
    poetry install
    ```
-6. Rodar os testes que o curso sugeriu pra ter certeza que mmeu ambiente estava funcionando corretamente:
+
+#### 5. Verificação do ambiente:
    ```bash
    poetry run task test
    ```
@@ -130,31 +150,21 @@ O resultado foi:
    ================================= 1 passed in 0.02s ============================================
    ```
 
-7. Ao fechar e abrir o vscode, meu ambiente virtual ja estava fazendo a ativação automatica, então eu não precisei digitar "poetry shell". Lembre-se de entrar na pasta "computer_vision" (cd computer vision) e ativar o ambiente virtual caso isso não esteja acontecendo de maneira automatica (poetry shell).
-Caso seu ambiente virtual não esteja ativado, digite os passos abaixo:
+## Configuração do Jupyter
+Essas configurações foram feitas pra conseguir rodar o Jupyter no kernell adequado no ambiente do VScode com as dependências gerenciadas pelo poetry
+
+#### 1. Ativação Automática do Ambiente
    ```bash
-   poetry self add poetry-shell-plugin
-   poetry shell
+    poetry self add poetry-shell-plugin
+    poetry shell
    ```
 
-8. Para ativar o setup do kernel para rodar o jupyter digite:
+#### 2. Ative o setup do kernel para rodar o jupyter notebook:
    ```bash
    poetry run task setup_jupyter
    ```
 
-Esse comando deve habilitar o kernel para ser utilizado no jupyter. Procure pelo kernel "Python (Poetry)"
-em Select kernel => Jupyter Server.
-
-Ao fechar e abrir a IDE verifique se o kernel já esta ativo. Caso esteja não é necessário rodar a task acima novamente.
-Verifique com 
-   ```bash
-   poetry run jupyter kernelspec list
-   ```
-Caso o kernel "project_kernel" esteja na lista não é necessário ativa-lo novamente.
-
-* **PS**: Para rodar o notebook no vscode precisei fazer alguns ajustes no arquivo original .toml. Foi necessário fixar as versões das bibliotecas opencv-python, ultralytics, mediapipe e numpy. Sempre que eu tentava fazer o import cv2 no notebook o kernel crashava e isso foi resolvido fixando a bibilioteca do open cv o que acabou levando a fixar as outras também. O poetry deveria fazer a gestão mas pode ter ocorrido algum problema que eu não investiguei mais profundamente mas foi resolvido instalando bibliotecas nativas (libgl1, ffmpeg, etc) e fixando as bibiliotecas no .toml.
-
-
+#### 3.  Procure pelo kernel "Python (Poetry)" no ambiente do VSCode para rodar os notebooks
 
 ## **🚀 Material de apoio por módulo**
 
