@@ -173,7 +173,5 @@ To run the notebooks, choose the "Python (Poetry)" kernel from the kernel select
 
 ## **🚀 Support Materials by Module**
 
-## 🚀 Support Materials by Module
-
 ### add module architeture here### (WIP)
 
