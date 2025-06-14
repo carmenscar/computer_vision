@@ -14,8 +14,7 @@ This repository contains my projects and improvements for the "Computer Vision S
 - [Environment Setup](#environment-setup)
 - [Project Installation](#project-installation)
 - [Jupyter Configuration](#jupyter-configuration)
-- [Troubleshooting](#troubleshooting)
-- [FAQ](#faq)
+- [Architeture](#Architeture)
 
 ---
 
@@ -171,7 +170,8 @@ Configure the Jupyter kernel to work with the Poetry environment:
 #### 3. Select the "Python (Poetry)" kernel in VS Code
 To run the notebooks, choose the "Python (Poetry)" kernel from the kernel selector in VS Code.
 
-## **🚀 Support Materials by Module**
+## Architeture
+**Support Materials by Module**🚀
 
 ### add module architeture here### (WIP)
 
