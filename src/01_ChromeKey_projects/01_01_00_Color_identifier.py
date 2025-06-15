@@ -35,10 +35,10 @@ import argparse
 import cv2
 import numpy as np
 
-# Inicializa a lista de amostras
+# Initializes the list of samples
 samples = []
 
-# Variável global para o frame atual (vai ser atualizado no loop)
+# Global variable for the current frame (will be updated inside the loop)
 frame = None
 
 def callback(event, x, y, flags, param):
@@ -59,13 +59,13 @@ def callback(event, x, y, flags, param):
 def main():
     global frame
 
-    parser = argparse.ArgumentParser(description='Script para extrair cores RGB de um video.')
-    parser.add_argument('-i', '--image', help='Caminho para o video.', required=True)
+    parser = argparse.ArgumentParser(description='Script to extract RGB color from video.')
+    parser.add_argument('-i', '--image', help='Path to video.', required=True)
     args = parser.parse_args()
 
     cap = cv2.VideoCapture(args.image)
     if not cap.isOpened():
-        print(f'Não foi possível abrir o video: {args.image}')
+        print(f'Could not open the video.: {args.image}')
         exit(1)
 
     cv2.namedWindow('image')
@@ -74,11 +74,11 @@ def main():
     while True:
         ret, frame = cap.read()
         if not ret:
-            print('Fim do vídeo ou erro na leitura do frame.')
+            print('End of video or error reading the frame.')
             break
 
         cv2.imshow('image', frame)
-        key = cv2.waitKey(3) & 0xFF  # 30ms delay para vídeo mais fluido
+        key = cv2.waitKey(3) & 0xFF  # 3ms delay
         if key == ord('q') or key == 27:
             break
 
