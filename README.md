@@ -10,13 +10,17 @@ This repository contains my projects and improvements for the "Computer Vision S
 - ✔️ Solutions for common dependency issues  
 
 ## Table of Contents
+- [Architeture](#Architeture)
 - [Prerequisites](#prerequisites)
 - [Environment Setup](#environment-setup)
 - [Project Installation](#project-installation)
 - [Jupyter Configuration](#jupyter-configuration)
-- [Architeture](#Architeture)
 
 ---
+## Architeture
+**Support Materials by Module**🚀
+
+add module architeture here (WIP)
 
 ## Prerequisites
 
@@ -24,9 +28,9 @@ This repository contains my projects and improvements for the "Computer Vision S
 | Tool            | Version  | Installation Guide |
 |-----------------|---------|--------------------|
 | VSCode          | Latest  | [Site](https://code.visualstudio.com/download) |
-| Pyenv           | 2.3.0+  | [GitHub](https://github.com/pyenv/pyenv#installation) |
-| Poetry          | 1.8.0+  | [Docs](https://python-poetry.org/docs/#installation) |
-| Git             | 2.40+   | [Guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) |
+| Pyenv           | 2.5.5+  | [GitHub](https://github.com/pyenv/pyenv#installation) |
+| Poetry          | 2.1.2+  | [Docs](https://python-poetry.org/docs/#installation) |
+| Git             | 2.43+    | [Guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) |
 
 ### 💻 WSL Configuration
 Open PowerShell on Windows and install WSL:
