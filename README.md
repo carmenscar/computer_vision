@@ -174,8 +174,4 @@ Configure the Jupyter kernel to work with the Poetry environment:
 #### 3. Select the "Python (Poetry)" kernel in VS Code
 To run the notebooks, choose the "Python (Poetry)" kernel from the kernel selector in VS Code.
 
-## Architeture
-**Support Materials by Module**🚀
-
-### add module architeture here### (WIP)
 
