@@ -23,13 +23,13 @@ Recommended steps to avoid this issue:
    - Run `poetry install` again to recreate the environment without installing `opencv-python-headless`.
 
 Usage:
-    python identificar_cor.py -i <video_file>
+    python 01_01_00_Color_identifier.py -i <video_file>
 
 Arguments:
     -i (--image): Path to the video file.
 
 Example:
-    python identificar_cor.py -i video.mp4
+    python 01_01_00_Color_identifier -i "/data/webcam.mp4"
 """
 import argparse
 import cv2
