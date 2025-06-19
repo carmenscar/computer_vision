@@ -6,9 +6,10 @@
 This repository contains my projects and improvements for the "Computer Vision Specialization". Based on the [original course code](https://github.com/carlosfab/visao-computacional), I've added:
 
 - ✔️ Improved setup documentation  
-- ✔️ Optimized configuration for Jupyter Notebooks  
-- ✔️ Solutions for common dependency issues
-- ✔️ New configuration for Projects
+- ✔️ Optimized Jupyter Notebook configurations  
+- ✔️ Resolved common dependency issues  
+- ✔️ Extended and optimized course-provided notebooks by testing alternative methods and conducting additional analyses
+
 
 
 ## Table of Contents
