@@ -7,10 +7,13 @@ This repository contains my projects and improvements for the "Computer Vision S
 
 - ✔️ Improved setup documentation  
 - ✔️ Optimized configuration for Jupyter Notebooks  
-- ✔️ Solutions for common dependency issues  
+- ✔️ Solutions for common dependency issues
+- ✔️ New configuration for Projects
+
 
 ## Table of Contents
 - [Architeture](#Architeture)
+- [Projects](#Projects)
 - [Prerequisites](#prerequisites)
 - [Environment Setup](#environment-setup)
 - [Project Installation](#project-installation)
@@ -21,6 +24,9 @@ This repository contains my projects and improvements for the "Computer Vision S
 **Support Materials by Module**🚀
 
 add module architeture here (WIP)
+
+## Projects
+- Deflorestation analysis with Landsat8
 
 ## Prerequisites
 
