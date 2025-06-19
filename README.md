@@ -26,8 +26,8 @@ This repository contains my projects and improvements for the "Computer Vision S
 
 add module architeture here (WIP)
 
-## Projects
-- Deflorestation analysis with Landsat8
+## Projects – Location: `src/Projects`
+- Deforestation analysis using Landsat 8 satellite imagery.
 
 ## Prerequisites
 
